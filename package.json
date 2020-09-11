@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe-classic",
+  "version": "1.0.0",
+  "description": "A classic game of tic-tac-toe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmccooey/tic-tac-toe-classic.git"
+  },
+  "author": "Nicholas McCooey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmccooey/tic-tac-toe-classic/issues"
+  },
+  "homepage": "https://github.com/nmccooey/tic-tac-toe-classic#readme",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  }
+}
