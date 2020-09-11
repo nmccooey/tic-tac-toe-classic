@@ -2,3 +2,43 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin: 20px auto;
+  width: 200px;
+  height: 200px;
+  background-color:#fff;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.box {
+  background-color:#333;
+  padding: 20px;
+  border-radius: 10px;
+  color:#fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.box:hover {
+  cursor: pointer;
+}
+
+.selected {
+  border: solid red 1px;
+  background-color:#fff;
+  color: #333;
+}

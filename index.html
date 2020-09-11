@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Materialize.css -->
     <link rel="stylesheet" type="text/css" href="styles/materialize.min.css"  media="screen,projection"/>
-    <!-- Font Awesome -->
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <!-- Favicon -->
@@ -18,9 +17,52 @@
     <link rel="manifest" href="site.webmanifest">
   </head>
   <body>
-    
+
+    <!-- Game Menu Modal -->
+    <div id="game-menu-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h2>Tic Tac Toe</h3>
+        <h5>Classic</h5>
+        <p>
+          <label>
+            <input class="with-gap" name="group3" type="radio" />
+            <span>Human vs Human</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="group3" type="radio" />
+            <span>Human vs Computer</span>
+          </label>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button id="next-button" class="waves-effect waves-light btn-small">Next</button>
+      </div>
+    </div>
+
+    <!-- Choose Character Modal -->
+    <div id="choose-character-modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h2>Choose Character</h3>
+        <div class="container">
+          <div data="ghost" class="box"><i class="fas fa-ghost"></i></div>
+          <div data="cat" class="box"><i class="fas fa-cat"></i></div>
+          <div data="spider" class="box"><i class="fas fa-spider"></i></div>
+          <div data="skull" class="box"><i class="fas fa-skull"></i></div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button id="start-game-button" class="waves-effect waves-light btn-small">Start Game</button>
+      </div>
+    </div>
+
     <!-- Materialize.js -->
     <script type="text/javascript" src="scripts/materialize.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/829b98cafe.js" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
     <script type="text/javascript" src="scripts/index.js"></script>
   </body>
 </html>
