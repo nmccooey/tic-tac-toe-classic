@@ -9,9 +9,14 @@ function launchGameMenu() {
 
   let gameMenuinstance = M.Modal.init(modalElement, options);
   gameMenuinstance.open();
+  let gameMode = "hvh";
 
-  document.querySelector("#next-button").addEventListener("click", function(){
-    // Test to make sure one radio button is selected.
+  document.querySelector("#next-button").addEventListener("click", function() {
+    // Check mode selection.
+    if (document.querySelector("#human-v-computer").checked) {
+      gameMode = "hvc";
+    }
+
     // Launch choose character modal.
     launchChooseCharacterModal();
   });
@@ -30,45 +35,54 @@ function launchGameMenu() {
     characterInstance.open();
 
     // Listener for character select divs.
-    let selectedCharacter = "";
-    let characters = document.querySelectorAll(".box");
+    let characters = document.querySelectorAll(".character");
     for (let i = 0; i < characters.length; i++) {
-      characters[i].addEventListener("click", function(){
-        let selectedEl = document.querySelector(".selected");
-        if(selectedEl){
-          selectedEl.classList.remove("selected");
+      characters[i].addEventListener("click", function() {
+        let selectedCharacter = document.querySelector(".selected");
+        if (selectedCharacter) {
+          selectedCharacter.classList.remove("selected");
         }
         this.classList.add("selected");
         }, false);
     }
 
     // Listener for game button.
-    document.querySelector("#start-game-button").addEventListener("click", function(){
-      // Test to make sure a character radio button is selected.
-
-      let selectedEl = document.querySelector(".selected");
-      if (selectedEl) {
-        alert(selectedEl.getAttribute("data"));
-        closeCharacterModal();
+    document.querySelector("#start-game-button").addEventListener("click", function() {
+      // Test to make sure a character is selected.
+      let selectedCharacter = document.querySelector(".selected");
+      if (selectedCharacter) {
+        closeCharacterModal(selectedCharacter);
       } else {
-        alert('please choose an option');
+        // Show warning toast to user for 1.5 seconds.
+        makeToast("Must choose a character", 1500);
       }
     });
 
-    function closeCharacterModal() {
+    // Closes modal and calls a function to start game.
+    function closeCharacterModal(character) {
       characterInstance.close();
-
-      // LAUNCHES GAME
-      startGame();
+      startGame(gameMode, character);
     }
   }
-
 }
 
-function startGame() {
+// Makes a toast.
+function makeToast(string, displayLength) {
+  M.toast({
+    html: string,
+    classes: 'rounded red',
+    displayLength: displayLength
+  });
+}
+
+// Starts a game with a specific mode and character.
+function startGame(gameMode, character) {
   console.log("Game has started.");
+  console.log(gameMode);
+  console.log(character.getAttribute("data"));
 }
 
+// Once DOM loads, open game menu modal.
 document.addEventListener('DOMContentLoaded', function() {
   launchGameMenu();
 });

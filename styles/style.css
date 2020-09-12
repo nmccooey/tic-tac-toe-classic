@@ -10,7 +10,8 @@ html, body {
   align-items: center;
 }
 
-.container {
+/* Character Model */
+.character-container {
   margin: 20px auto;
   width: 200px;
   height: 200px;
@@ -22,7 +23,7 @@ html, body {
   grid-row-gap: 20px;
 }
 
-.box {
+.character {
   background-color:#333;
   padding: 20px;
   border-radius: 10px;
@@ -33,7 +34,7 @@ html, body {
   font-size: 40px;
 }
 
-.box:hover {
+.character:hover {
   cursor: pointer;
 }
 
