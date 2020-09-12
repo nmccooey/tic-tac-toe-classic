@@ -1,6 +1,9 @@
+@import url("board.css");
+
 html, body {
   margin: 0px;
   padding: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .modal-content {
@@ -8,6 +11,11 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.description {
+  text-align: center;
+  font-weight: 100;
 }
 
 /* Character Model */

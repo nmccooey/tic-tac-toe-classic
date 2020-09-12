@@ -2,8 +2,9 @@
 function launchGameMenu() {
   let modalElement = document.querySelector("#game-menu-modal");
   let options = {
-    inDuration: 200,
-    outDuration: 200,
+    inDuration: 0,
+    outDuration: 0,
+    opacity: 1.0,
     dismissible: false
   };
 
@@ -26,8 +27,9 @@ function launchGameMenu() {
     gameMenuinstance.close();
     let modalElement = document.querySelector("#choose-character-modal");
     let options = {
-      inDuration: 200,
-      outDuration: 200,
+      inDuration: 0,
+      outDuration: 500,
+      opacity: 1.0,
       dismissible: false
     };
   
@@ -61,7 +63,7 @@ function launchGameMenu() {
     // Closes modal and calls a function to start game.
     function closeCharacterModal(character) {
       characterInstance.close();
-      startGame(gameMode, character);
+      startGame(gameMode, character.getAttribute("data"));
     }
   }
 }
@@ -75,14 +77,41 @@ function makeToast(string, displayLength) {
   });
 }
 
-// Starts a game with a specific mode and character.
-function startGame(gameMode, character) {
-  console.log("Game has started.");
-  console.log(gameMode);
-  console.log(character.getAttribute("data"));
-}
-
 // Once DOM loads, open game menu modal.
 document.addEventListener('DOMContentLoaded', function() {
   launchGameMenu();
 });
+
+
+// ALL GAME LOGIC:
+// ------------------------------------------------------
+
+
+
+// Starts a game with a specific mode and character.
+function startGame(gameMode, characterName) {
+  // Human
+  let playerOne = {
+    name: `<i class="fas fa-${characterName}"></i>`,
+    score: 0
+  }
+  // Computer
+  let playerTwo = {
+    name: "Goblin",
+    score: 0
+  }
+
+  initEventListeners();
+
+  // Initializes event listeners for each game spot.
+  function initEventListeners() {
+    document.querySelectorAll(".game-spot").forEach(gameSpot => {
+      gameSpot.addEventListener("click", event => {
+          if (gameSpot.innerHTML == "") {
+            gameSpot.innerHTML = playerOne.name;
+            // Check winner.
+          }
+      });
+    });
+  }
+}
