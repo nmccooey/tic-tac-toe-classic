@@ -7,6 +7,7 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap">
     <!-- Materialize.css -->
     <link rel="stylesheet" type="text/css" href="styles/materialize.min.css"  media="screen,projection"/>
     <!-- Custom CSS -->
@@ -22,32 +23,32 @@
     <!-- Game Menu Modal -->
     <div id="game-menu-modal" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <h2>Tic Tac Toe</h3>
-        <h5>Classic</h5>
+        <h2 class="title">Tic Tac Toe</h3>
+        <h4 class="sub-title">Spooky Edition</h4>
         <p class="description">Tic-Tac-Toe is a simple game in which 2 players alternate diferent markings in a 3x3 grid. The first to complete either a full straight line (row or column) or a diagonal with its markings, wins!</p>
         <p>
           <label>
             <input class="with-gap" name="game-mode" id="human-v-human" type="radio" />
-            <span>Human vs Human</span>
+            <span class="game-option-text">Human vs Human</span>
           </label>
         </p>
         <p>
           <label>
             <input class="with-gap" name="game-mode" id="human-v-computer" type="radio" checked/>
-            <span>Human vs Computer</span>
+            <span class="game-option-text">Human vs Monster</span>
           </label>
         </p>
       </div>
       <div class="modal-footer">
-        <button id="next-button" class="waves-effect waves-light btn-small">Next</button>
+        <button id="next-button" class="waves-effect waves-light btn-small blue-grey darken-4">Next</button>
       </div>
     </div>
 
     <!-- Choose Character Modal -->
     <div id="choose-character-modal" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <h2>Player One</h2>
-        <h3>Choose Character:</h3>
+        <h2 class="title">Player One</h2>
+        <h4 class="sub-title">Choose Character:</h4>
         <div class="character-container">
           <div data="ghost" class="character"><i class="fas fa-ghost"></i></div>
           <div data="cat" class="character"><i class="fas fa-cat"></i></div>
@@ -56,13 +57,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button id="start-game-button" class="waves-effect waves-light btn-small">Start Game</button>
+        <button id="start-game-button" class="waves-effect waves-light btn-small blue-grey darken-4">Start Game</button>
       </div>
     </div>
 
     <!-- Game Board -->
     <div class="game-container">
-      <h2>Tic Tac Toe</h2>
+      <h2 class="game-title">Tic Tac Toe</h2>
+      <h4 class="sub-title">Spooky Edition</h4>
       <div class="game-board">
         <div data-index="0" class="game-spot"></div>
         <div data-index="1" class="game-spot"></div>

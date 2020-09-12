@@ -8,16 +8,16 @@
 .game-board {
 	width: 500px;
 	height: 500px;
-  background-color: #b45100;
+  background-color: #263238;
   color: #fff;
-  border: 6px solid #ff8009;
+  border: 6px solid #fb8c00;
   border-radius: 10px;
 	display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .game-spot {
-  border: 6px solid #ff8009;
+  border: 6px solid #fb8c00;
   border-radius: 2px;
   font-family: Helvetica;
   font-weight: bold;
