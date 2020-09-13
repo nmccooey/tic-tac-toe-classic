@@ -130,6 +130,7 @@ function startGame(gameMode, characterName) {
     });
   }
 
+  // Changes player.
   function changePlayer() {
     if (currentPlay == playerOne) {
       currentPlay = playerTwo;
@@ -138,21 +139,32 @@ function startGame(gameMode, characterName) {
     }
   }
 
+  // Checks to see if there is a winner based on the current board.
   function checkWinner(board, currentPlay) {
     let winner = winTest(board, currentPlay);
     if (winner == playerOne || winner == playerTwo) {
-      setTimeout(function() {
-          alert(`The winner is ${winner.characterName}`);
-          location.reload(true);
-      }, 2)
+      // Make Modal and announce winner.
+      makeResultsModal();
     } else if (winner == "tie") {
-      setTimeout(function() {
-          alert(`It's a Tie!`);
-          location.reload(true);
-      }, 2)
+      // Make Modal and announce tie.
+      makeResultsModal();
     }
   }
 
+  function makeResultsModal() {
+    let modalElement = document.querySelector("#results-modal");
+    let options = {
+      inDuration: 500,
+      outDuration: 0,
+      opacity: 1.0,
+      dismissible: false
+    };
+  
+    let resultsModal = M.Modal.init(modalElement, options);
+    resultsModal.open();
+  }
+
+  // Contains and checks all win cases.
   function winTest(board, side) {
     const winConditions = [
       [0, 1, 2],
