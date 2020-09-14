@@ -144,14 +144,14 @@ function startGame(gameMode, characterName) {
     let winner = winTest(board, currentPlay);
     if (winner == playerOne || winner == playerTwo) {
       // Make Modal and announce winner.
-      makeResultsModal();
+      makeResultsModal(winner);
     } else if (winner == "tie") {
       // Make Modal and announce tie.
-      makeResultsModal();
+      makeResultsModal("tie");
     }
   }
 
-  function makeResultsModal() {
+  function makeResultsModal(winner) {
     let modalElement = document.querySelector("#results-modal");
     let options = {
       inDuration: 500,
@@ -162,6 +162,16 @@ function startGame(gameMode, characterName) {
   
     let resultsModal = M.Modal.init(modalElement, options);
     resultsModal.open();
+
+    if (winner == "tie") {
+      document.querySelector("#winner-display").innerText = "IT'S A TIE!";
+    } else {
+      document.querySelector("#winner-display").innerText = winner.characterName.toUpperCase();
+    }
+
+    document.querySelector("#play-again-button").addEventListener("click", function(){
+      location.reload();
+    });
   }
 
   // Contains and checks all win cases.
