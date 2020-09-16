@@ -10,10 +10,10 @@ Skull
 Computer Character:
 Monster!
 
-![choose character screenshot]("/Users/nickmccooey/workspace/the_odin_project/tic-tac-toe-spooky-edition/images/choose-character.png")
+![choose character screenshot]("https://github.com/nmccooey/tic-tac-toe-spooky-edition/blob/master/images/choose-character.png")
 
 
-![game board screenshot]("/Users/nickmccooey/workspace/the_odin_project/tic-tac-toe-spooky-edition/images/game-board.png")
+![game board screenshot]("https://github.com/nmccooey/tic-tac-toe-spooky-edition/blob/master/images/game-board.png")
 
 Made with:
 Vanilla JS
