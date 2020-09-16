@@ -10,10 +10,10 @@ Human Selectable Characters:
 Computer Character:
 - Monster!
 
-![choose character screenshot]("choose-character.png")
+![choose character screenshot](images/choose-character.png)
 
 
-![game board screenshot]("https://github.com/nmccooey/tic-tac-toe-spooky-edition/blob/master/images/game-board.png?raw=true")
+![game board screenshot](images/game-board.png)
 
 Made with:
 - Vanilla JS
