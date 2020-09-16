@@ -89,22 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Starts a game with a specific mode and character.
 function startGame(gameMode, characterName) {
-  // Human
-  let playerOne = {
-    name: `<i class="fas fa-${characterName}"></i>`,
-    characterName: characterName,
-    score: 0
-  }
-  // Computer
-  let playerTwo = {
-    name: `<i class="fab fa-optin-monster"></i>`,
-    characterName: "Monster",
-    score: 0
-  }
+  const player = (name, characterName) => {
+    return { name, characterName };
+  };
+
+  const playerOne = player(`<i class="fas fa-${characterName}"></i>`, characterName);
+  const playerTwo = player(`<i class="fab fa-optin-monster"></i>`, "Monster");
+
+
   let board = ["","","","","","","","",""];
   let currentPlay = playerOne;
 
-  startBackgroundMusic();
+  //startBackgroundMusic();
   initEventListeners();
 
   // Starts the background music on a loop.
