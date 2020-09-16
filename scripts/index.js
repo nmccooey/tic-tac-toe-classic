@@ -16,6 +16,8 @@ function launchGameMenu() {
     // Check mode selection.
     if (document.querySelector("#human-v-computer").checked) {
       gameMode = "hvc";
+    } else {
+      gameMode = "hvh";
     }
 
     // Launch choose character modal.
@@ -82,11 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
   launchGameMenu();
 });
 
-
 // ALL GAME LOGIC:
 // ------------------------------------------------------
-
-
 
 // Starts a game with a specific mode and character.
 function startGame(gameMode, characterName) {
@@ -125,9 +124,27 @@ function startGame(gameMode, characterName) {
           board[gameSpot.getAttribute("data-index")] = currentPlay;
           checkWinner(board, currentPlay);
           changePlayer();
+          if (gameMode == "hvc") {
+            computerMove();
+            checkWinner(board, currentPlay);
+            changePlayer();
+          }
         }
       });
     });
+  }
+
+  // Computers move.
+  function computerMove() {
+    let gameSpots = document.querySelectorAll(".game-spot");
+    for (let i = 0; i < gameSpots.length; i++) {
+      if(gameSpots[i].innerHTML == "") {
+        console.log("looping");
+        gameSpots[i].innerHTML = currentPlay.name;
+        board[gameSpots[i].getAttribute("data-index")] = currentPlay;
+        break;
+      }
+    }
   }
 
   // Changes player.
@@ -166,6 +183,7 @@ function startGame(gameMode, characterName) {
     if (winner == "tie") {
       document.querySelector("#winner-display").innerText = "IT'S A TIE!";
     } else {
+      document.querySelector("#winner-icon").innerHTML = winner.name;
       document.querySelector("#winner-display").innerText = winner.characterName.toUpperCase();
     }
 
